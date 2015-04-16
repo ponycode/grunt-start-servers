@@ -1,0 +1,43 @@
+{
+  "name": "grunt-start-servers",
+  "version": "0.0.1",
+  "description": "Grunt tasks to start and stop mongo and redis gruntplugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jkennedy1980@github.com/ponycode/grunt-start-servers.git"
+  },
+  "keywords": [
+    "grunt",
+    "mongo",
+    "redis",
+    "start",
+    "stop",
+    "server",
+    "database",
+    "gruntplugin"
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "author": "Josh Kennedy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ponycode/grunt-start-servers/issues"
+  },
+  "homepage": "https://github.com/ponycode/grunt-start-servers",
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "dependencies": {
+    "colors": "~1.0.3",
+    "lodash": "~3.6.0",
+    "async": "~0.9.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  }
+}
