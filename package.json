@@ -1,6 +1,6 @@
 {
   "name": "grunt-start-servers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Grunt tasks to start and stop mongo and redis gruntplugin",
   "main": "index.js",
   "scripts": {
