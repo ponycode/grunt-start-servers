@@ -2,6 +2,9 @@
 
 Grunt task to start and stop Mongo and Redis on your local workstation. Should be easy to add new types of servers too.
 
+# WARNING: 
+This has only been tested on OSX. In fact I know it won't work on windows. It would be nice if someone could help me out on Windows.
+
 ### Setup
 
 Add a servers section similar to the following to your gruntfile:
@@ -30,8 +33,6 @@ grunt servers:status
 grunt servers:stop
 
 ```
-
-# WARNING: This has only been tested on OSX. It would be nice if someone could help me out on Windows.
 
 ### Future Plans
 
