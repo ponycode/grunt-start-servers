@@ -33,3 +33,4 @@ node_modules
 servers
 .idea/jsLibraryMappings.xml
 .idea/libraries
+.idea/workspace.xml
