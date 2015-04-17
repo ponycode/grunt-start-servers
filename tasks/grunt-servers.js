@@ -8,32 +8,26 @@ module.exports = function( grunt ){
 	function _statusTask( server, config ){
 		return function( done ){
 			server.lib.status( 0, function( error, status ){
-				grunt.log.subhead( server.name + " status:" );
-				if( status.isRunning ){
-					grunt.log.ok( "running [" + status.pid + "]" );
-				}else{
-					grunt.log.error( "not running" );
-				}
-				grunt.log.writeln();
-				done();
+				if( error ) grunt.log.debug( "Error checking " + server.name + " status", error );
+				done( false, status );
 			});
 		};
 	}
 
 	function _startTask( server, config ){
 		return function( done ){
-			server.lib.start( function( error, started ){
-				grunt.log.subhead( "Started " + server.name );
-				done();
+			server.lib.start( function( error, status ){
+				if( error ) grunt.log.debug( "Error starting " + server.name, error );
+				done( false, status );
 			})
 		};
 	}
 	
 	function _stopTask( server, config ){
 		return function( done ){
-			server.lib.stop( function( error, stopped ){
-				grunt.log.subhead( "Stopped " + server.name );
-				done();
+			server.lib.stop( function( error, status ){
+				if( error ) grunt.log.debug( "Error stopping " + server.name, error );
+				done( false, status );
 			})
 		};
 	}
@@ -82,8 +76,33 @@ module.exports = function( grunt ){
 		});
 
 		async.series( tasks, function( error, results ){
+			_printResultsForAction( action, results );
 			done( error );
 		});
 	} );
+	
+	function _printResultsForAction( action, results ){
+
+		grunt.log.debug( "RESULTS", results );
+		
+		if( action === 'status' ){
+			grunt.log.subhead( "Server statuses:" );
+		}else if( action === 'start' ){
+			grunt.log.subhead( "Starting servers:" );
+		}else if( action === 'stop' ){
+			grunt.log.subhead( "Stopping servers:" );
+		}
+
+		_.each( results, function( result ){
+			if( result.isRunning ){
+				grunt.log.ok( result.message );
+			}else{
+				grunt.log.error( result.message );
+			}
+		});
+
+		grunt.log.writeln();
+
+	}
 
 };
