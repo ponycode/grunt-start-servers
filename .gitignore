@@ -31,3 +31,5 @@ node_modules
 .idea/misc.xml
 .idea/grunt-start-servers.iml
 servers
+.idea/jsLibraryMappings.xml
+.idea/libraries
